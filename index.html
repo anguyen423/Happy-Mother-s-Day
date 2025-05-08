@@ -21,12 +21,25 @@
         }
 
         .section {
-            padding: 50px 20px;
-            max-width: 800px;
-            margin: auto;
+            display: none;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            max-width: 100%;
+            margin: 0;
         }
 
-        .section:nth-child(even) {
+        .section.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .section:nth-of-type(even) {
             background-color: #ffe0e9;
         }
 
@@ -34,9 +47,13 @@
             font-family: 'Georgia', serif;
         }
 
+        h2, p {
+            margin: 10px 0;
+        }
+
         img {
             width: 100%;
-            max-width: 400px;
+            max-width: 250px;
             height: auto;
             border-radius: 10px;
             margin: 20px 0;
@@ -67,7 +84,7 @@
         <p>From coffee dates to road trips, we made memories we'll cherish forever.</p>
         <img src="images/adventures.jpg" alt="Adventures together">
     </div>
-
+    
     <div class="section">
         <h2>Falling in Love</h2>
         <p>Every day brought us closer, and before we knew it, we were inseparable.</p>
@@ -84,5 +101,22 @@
         <h2>Happy Mother's Day</h2>
         <p>Thank you for being my partner, my best friend, and the most incredible mom. I love you, Selena.</p>
     </footer>
+
+    <script>
+        const sections = document.querySelectorAll('.section');
+        let current = 0;
+
+        function showNextSection() {
+            if (current < sections.length) {
+                sections[current].classList.add('show');
+                current++;
+                setTimeout(showNextSection, 5000); // change delay as needed
+            }
+        }
+
+        window.onload = () => {
+            setTimeout(showNextSection, 1000);
+        };
+    </script>
 </body>
 </html>
