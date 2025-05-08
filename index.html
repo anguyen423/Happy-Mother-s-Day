@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Our Love Story - Happy Mother's Day</title>
     <style>
+        html, body {
+            height: 100%;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+        }
         body {
             margin: 0;
             padding: 0;
@@ -23,7 +29,7 @@
         .slideshow-container {
             position: relative;
             width: 100%;
-            height: 100vh;
+            height: 100dvh;
             overflow: hidden;
         }
 
@@ -35,12 +41,13 @@
             display: none;
             opacity: 0;
             transition: opacity 1.5s ease;
-            height: 100vh;
+            height: 100dvh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 10vh 20px;
+            box-sizing: border-box;
             max-width: 100%;
             margin: 0;
         }
@@ -68,6 +75,7 @@
             height: auto;
             border-radius: 10px;
             margin: 20px 0;
+            max-width: 90vw;
         }
 
         .image-row {
