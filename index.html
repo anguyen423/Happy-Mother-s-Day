@@ -200,8 +200,14 @@
             }
         });
 
-        document.addEventListener('touchstart', () => {
-            showNextSection();
+        let lastTap = 0;
+        document.addEventListener('touchend', () => {
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+            if (tapLength < 300 && tapLength > 0) {
+                showNextSection();
+            }
+            lastTap = currentTime;
         });
     </script>
 </body>
