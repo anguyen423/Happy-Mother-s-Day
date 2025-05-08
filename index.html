@@ -20,7 +20,18 @@
             color: white;
         }
 
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
         .section {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
             display: none;
             opacity: 0;
             transition: opacity 1.5s ease;
@@ -59,6 +70,13 @@
             margin: 20px 0;
         }
 
+        .image-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
         footer {
             background-color: #ff9aa2;
             color: white;
@@ -73,42 +91,74 @@
         <p>Happy Mother's Day, Selena ❤️</p>
     </header>
 
-    <div class="section">
-        <h2>How We Met</h2>
-        <p>It all started with a smile and a spark we never expected...</p>
-        <img src="images/meeting.jpg" alt="How we met">
-    </div>
+    <div class="slideshow-container">
+        <div class="section">
+            <h2>It all started with -</h2>
+            <p> a swipe and a spark we never expected...</p>
+            <div class="image-row">
+                <img src="images/Sel_teamlabs_blue.jpg" alt="Adventures together">
+            <img src="images/bumble.gif" alt="How we met">
+            <img src="images/Sel_Korea_lib.jpg" alt="Adventures together">
+            </div>
+        </div>
 
-    <div class="section">
-        <h2>Our Adventures</h2>
-        <p>From coffee dates to road trips, we made memories we'll cherish forever.</p>
-        <img src="images/adventures.jpg" alt="Adventures together">
-    </div>
-    
-    <div class="section">
-        <h2>Falling in Love</h2>
-        <p>Every day brought us closer, and before we knew it, we were inseparable.</p>
-        <img src="images/love.jpg" alt="Falling in love">
-    </div>
+        <div class="section">
+            <h2>It led to Adventures</h2>
+            <p>on coffee dates then trips, we made memories we'll cherish forever.</p>
+            <div class="image-row">
+                <img src="images/Sel_Korea_haircut.jpg" alt="Adventures together">
+                <img src="images/Sel_Coffee_sip.jpg" alt="Adventures together">
+                <img src="images/sel_urban_plant.jpg" alt="Adventures together">
+                
+                
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Falling in Love</h2>
+            <p>Every day brought us closer, and before we knew it, we were inseparable.</p>
+            <div class="image-row">
+                <img src="images/duo_viet.jpg" alt="Adventures together">
+                <img src="images/ring.jpeg" alt="Falling in love">
+                <img src="images/duo_korea2.jpg" alt="Adventures together">
+            </div>
+        </div>
 
-    <div class="section">
-        <h2>Starting a Family</h2>
-        <p>Our greatest adventure began with the birth of our child. You're an amazing mom.</p>
-        <img src="images/family.jpg" alt="Our family">
-    </div>
+        <div class="section">
+            <h2>Starting a Family</h2>
+            <p>Our greatest adventure began with the birth of our child. You're an amazing mom.</p>
+            <div class="image-row">
+            <video controls width="250">
+                <source src="images/IMG_3321.mov" type="video/quicktime">
+                Chrome browser does not support the video tag.
+            </video>
+            </div>
+        </div>
 
+        <div class="section">
+            <h1>Happy Mother's Day</h1>
+        <p>Thank you for being my partner, my best friend, and the most incredible mom. I love you Selena.</p>
+        </div>
+
+    </div> <!-- End slideshow-container -->
+<!--
     <footer>
         <h2>Happy Mother's Day</h2>
-        <p>Thank you for being my partner, my best friend, and the most incredible mom. I love you, Selena.</p>
+        <p>Thank you for being my partner, my best friend, and the most incredible mom. I love you Selena.</p>
     </footer>
-
+-->
     <script>
         const sections = document.querySelectorAll('.section');
         let current = 0;
 
         function showNextSection() {
             if (current < sections.length) {
-                sections[current].classList.add('show');
+                sections.forEach((section, index) => {
+                    section.classList.remove('show');
+                    if (index === current) {
+                        section.classList.add('show');
+                    }
+                });
                 current++;
                 setTimeout(showNextSection, 5000); // change delay as needed
             }
